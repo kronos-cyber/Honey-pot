@@ -1,4 +1,1 @@
-# Save the logistic regression model
-with open("scam_model.pkl", "wb") as model_file:
-    pickle.dump(model, model_file)
-print("Model saved as scam_model.pkl")
+
