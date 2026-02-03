@@ -1,0 +1,7 @@
+# Initialize the TfidfVectorizer and transform text
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(df["text"])
+
+# Train the model
+model = LogisticRegression()
+model.fit(X, df["label"])
