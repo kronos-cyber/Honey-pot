@@ -1,12 +1,1 @@
-# Initialize the TfidfVectorizer and transform text
-vectorizer = TfidfVectorizer()
-X = vectorizer.fit_transform(df["text"])
 
-# Train the model
-model = LogisticRegression()
-model.fit(X, df["label"])
-
-# Save the vectorizer
-with open("vectorizer.pkl", "wb") as vectorizer_file:
-    pickle.dump(vectorizer, vectorizer_file)
-print("Vectorizer saved as vectorizer.pkl")
