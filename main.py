@@ -1,13 +1,17 @@
 from fastapi import FastAPI, Header, HTTPException
 import pickle, re
 from datetime import datetime
+import os
 
 app = FastAPI()
 
 API_KEY = "TEST_API_KEY"
 
-model = pickle.load(open("scam_model.pkl", "rb"))
-vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
+if not os.path.exists("scam_model.pkl"):
+    raise RuntimeError("scam_model.pkl missing")
+
+if not os.path.exists("vectorizer.pkl"):
+    raise RuntimeError("vectorizer.pkl missing")
 
 def predict(text):
     X = vectorizer.transform([text])
